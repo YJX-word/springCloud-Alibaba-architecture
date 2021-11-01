@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-Alibaba-provider-8001" />
+        <module name="springcloud-Alibaba-consumer-8002" />
+        <module name="springcloud-Alibaba-geteway-8040" />
+        <module name="springcloud-Alibaba-api" />
+        <module name="springcloud-Alibaba-zuul-8527" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

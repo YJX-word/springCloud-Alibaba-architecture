@@ -1,0 +1,18 @@
+server:
+  port: 8527
+spring:
+  application:
+    name: springcloud-zuul
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        namespace: 39bf699b-1274-44c2-9a0e-c2594d0dadca
+zuul:
+  prefix: /yjx
+  ignoredServices: '*'
+  routes:
+    user:
+      path: /mypath/**
+      serviceId: nacos-provider-8001
+      sensitiveHeaders:

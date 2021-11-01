@@ -1,0 +1,31 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        namespace: 39bf699b-1274-44c2-9a0e-c2594d0dadca
+    gateway:
+      discovery:
+        locator:
+          enabled: true   # 让gateway通过服务发现组件找到其他服务
+          lowerCaseServiceId: true # 请求服务是小写的时候改成true（默认为false轻微服务必须是大写）
+      routes:
+          - id: test_baidu_route
+            uri: lb://nacos-consumer-8002  # lb指的是从nacos中按照名称获取微服务,并遵循负载均衡策略
+            predicates:
+              - Path=/yjx/**
+            filters:
+              - StripPrefix=1  #去除第一个级前缀 使请求转到http://nacos-consumer-8002/** ,去掉了yjx
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露出所有actuator监控的端点
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: nacos-provider-8001
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        namespace: 39bf699b-1274-44c2-9a0e-c2594d0dadca
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        prefix: nacos-provide-8001
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: DEFAULT_GROUP
