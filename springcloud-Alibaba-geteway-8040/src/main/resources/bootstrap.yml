@@ -20,6 +20,10 @@ spring:
               - Path=/yjx/**
             filters:
               - StripPrefix=1  #去除第一个级前缀 使请求转到http://nacos-consumer-8002/** ,去掉了yjx
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
 management:
   endpoints:
     web:

@@ -17,10 +17,13 @@ spring:
           - id: test_baidu_route
             uri: lb://nacos-consumer-8002  # lb指的是从nacos中按照名称获取微服务,并遵循负载均衡策略
             predicates:
-              - Query=chid,wx
-              - Path=/baidu/**
+              - Path=/yjx/**
             filters:
-              - StripPrefix=1
+              - StripPrefix=1  #去除第一个级前缀 使请求转到http://nacos-consumer-8002/** ,去掉了yjx
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
 management:
   endpoints:
     web:

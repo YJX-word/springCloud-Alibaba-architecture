@@ -12,3 +12,10 @@ spring:
         prefix: nacos-consumer-8002
         namespace: ${spring.cloud.nacos.discovery.namespace}
         group: DEFAULT_GROUP
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
+resttemplate:
+  sentinel:
+    enabled: true

@@ -12,24 +12,24 @@ import java.util.List;
 
 /**
  * @Author: Yjx
- * @Data: 2021/10/31 22:57
+ * @Data: 2021/11/7 20:41
  * @Version 1.0
  * @Project_Name: springcloud-Alibaba
  * @describe
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NacosCommer_8002 {
+public class Sentinel_8003 {
     public static void main(String[] args) {
-        initRule("GET:http://nacos-provider-8001");
-        SpringApplication.run(NacosCommer_8002.class,args);
+        initRule("resource");
+        SpringApplication.run(Sentinel_8003.class,args);
     }
     static void initRule(String str){
         List<FlowRule> rules = new ArrayList<FlowRule>();
         FlowRule rule = new FlowRule();
         rule.setResource(str);
 // set limit qps to 10
-        rule.setCount(2);
+        rule.setCount(20);
         rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
         rule.setLimitApp("default");
         rules.add(rule);

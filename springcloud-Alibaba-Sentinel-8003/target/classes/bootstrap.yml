@@ -1,6 +1,6 @@
 spring:
   application:
-    name: nacos-consumer-8002
+    name: Sentinel-8003
   cloud:
     nacos:
       discovery:
@@ -9,13 +9,10 @@ spring:
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
-        prefix: nacos-consumer-8002
+        prefix: sentinel-provider-8003
         namespace: ${spring.cloud.nacos.discovery.namespace}
         group: DEFAULT_GROUP
     sentinel:
       transport:
         dashboard: localhost:8080
       eager: true
-resttemplate:
-  sentinel:
-    enabled: true

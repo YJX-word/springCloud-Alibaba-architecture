@@ -14,6 +14,7 @@
         <module>springcloud-Alibaba-consumer-8002</module>
         <module>springcloud-Alibaba-zuul-8527</module>
         <module>springcloud-Alibaba-geteway-8040</module>
+        <module>springcloud-Alibaba-Sentinel-8003</module>
     </modules>
 
     <properties>

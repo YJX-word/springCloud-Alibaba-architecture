@@ -12,6 +12,7 @@
         <module name="springcloud-Alibaba-geteway-8040" />
         <module name="springcloud-Alibaba-api" />
         <module name="springcloud-Alibaba-zuul-8527" />
+        <module name="springcloud-Alibaba-Sentinel-8003" />
       </profile>
     </annotationProcessing>
   </component>
