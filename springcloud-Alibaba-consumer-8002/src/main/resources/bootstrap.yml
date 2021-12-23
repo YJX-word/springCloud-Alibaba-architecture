@@ -19,3 +19,34 @@ spring:
 resttemplate:
   sentinel:
     enabled: true
+#ribbon:
+#  eureka:
+#    enabled: false
+#foo:
+#  ribbon:
+#    listOfServers: localhost:8001
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  # 事务群组（可以每个应用独立取名，也可以使用相同的名字），要与服务端nacos-config.txt中service.vgroup_mapping的后缀对应
+  tx-service-group: my_test_tx_group
+  config:
+    type: nacos
+    # 需要和server在同一个注册中心下
+    nacos:
+      namespace: 83f4c1f2-0ed7-4665-bd01-d77e9db4c592
+      serverAddr: http://localhost:8848
+      # 需要server端(registry和config)、nacos配置client端(registry和config)保持一致
+      group: SEATA_GROUP
+      username: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      # 需要和server端保持一致，即server在nacos中的名称，默认为seata-server
+      application: seata-server
+      server-addr: http://localhost:8848
+      group: SEATA_GROUP
+      namespace: 83f4c1f2-0ed7-4665-bd01-d77e9db4c592
+      username: "nacos"
+      password: "nacos"

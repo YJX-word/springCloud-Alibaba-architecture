@@ -7,13 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springcloud-Alibaba-provider-8001" />
         <module name="springcloud-Alibaba-consumer-8002" />
+        <module name="springcloud-Alibaba-order-seata-8004" />
+        <module name="springcloud-Alibaba-zuul-8527" />
+        <module name="springcloud-Alibaba-provider-8001" />
         <module name="springcloud-Alibaba-geteway-8040" />
         <module name="springcloud-Alibaba-api" />
-        <module name="springcloud-Alibaba-zuul-8527" />
         <module name="springcloud-Alibaba-Sentinel-8003" />
+        <module name="springcloud-Alibaba-store-seata-8005" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud-Alibaba-provide-seata-8005" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

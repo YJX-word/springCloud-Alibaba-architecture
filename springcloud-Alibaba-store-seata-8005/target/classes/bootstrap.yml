@@ -1,0 +1,51 @@
+server:
+  port: 8005
+mybatis:
+  type-aliases-package: com.yjx.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+spring:
+  application:
+    name: seata-store-8005
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/store_seata?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        namespace: 39bf699b-1274-44c2-9a0e-c2594d0dadca
+        config:
+          server-addr: ${spring.cloud.nacos.discovery.server-addr}
+          file-extension: yaml
+          prefix: seata-store-8005
+          namespace: ${spring.cloud.nacos.discovery.namespace}
+          group: DEFAULT_GROUP
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  # 事务群组（可以每个应用独立取名，也可以使用相同的名字），要与服务端nacos-config.txt中service.vgroup_mapping的后缀对应
+  tx-service-group: my_test_tx_group
+  config:
+    type: nacos
+    # 需要和server在同一个注册中心下
+    nacos:
+      namespace: 83f4c1f2-0ed7-4665-bd01-d77e9db4c592
+      serverAddr: http://localhost:8848
+      # 需要server端(registry和config)、nacos配置client端(registry和config)保持一致
+      group: SEATA_GROUP
+      username: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      # 需要和server端保持一致，即server在nacos中的名称，默认为seata-server
+      application: seata-server
+      server-addr: http://localhost:8848
+      group: SEATA_GROUP
+      namespace: 83f4c1f2-0ed7-4665-bd01-d77e9db4c592
+      username: "nacos"
+      password: "nacos"

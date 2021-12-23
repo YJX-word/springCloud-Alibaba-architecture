@@ -25,6 +25,7 @@ public class DeptConsumerController {
     private RestTemplate restTemplate;
 
 //    private static final String REST_URL_PREFIX = "http://localhost:8001";
+//    private static final String REST_URL_PREFIX = "http://nacos-provider-8001";
     private static final String REST_URL_PREFIX = "http://nacos-provider-8001";
 
     @PostMapping("/consumer/dept/add")
