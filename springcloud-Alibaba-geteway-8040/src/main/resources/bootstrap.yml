@@ -15,7 +15,7 @@ spring:
           lowerCaseServiceId: true # 请求服务是小写的时候改成true（默认为false轻微服务必须是大写）
       routes:
           - id: test_baidu_route
-            uri: lb://nacos-consumer-8002  # lb指的是从nacos中按照名称获取微服务,并遵循负载均衡策略
+            uri: lb://nacos-consumer-8002  # lb指的是从nacos中按照名称获取微服务,并遵循默认负载均衡策略
             predicates:
               - Path=/yjx/**
             filters:
@@ -33,3 +33,12 @@ management:
   endpoint:
     health:
       show-details: always
+# 自定义为服务设置负载均衡
+#nacos-consumer-8002:
+#  ribbon:
+#    # 负载地址
+#    listOfServers: http://localhost:8072, http://localhost:8073
+#    # 负载轮询策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#    # 健康检查
+#    NFLoadBalancerPingClassName: com.modules.scistor.config.HealthExamination
